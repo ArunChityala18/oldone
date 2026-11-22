@@ -20,13 +20,13 @@ docker push arunchiatyala/mywebapp:latest
 
 minikube start --driver=docker
 minikube status
-kubectl --get pods
+kubectl get pods
 kubectl create deployment mynginx --image=nginx
 kubectl get deployments
-kubectl expose deployment mynginx --type:NodePort --port=80 --target-port=80
+kubectl expose deployment mynginx --type=NodePort --port=80 --target-port=80
 kubectl scale deployment mynginx --replicas=4
 kubectl port-forward svc/mynginx 8084:80
-kubectl delete deployment mynginx 
+kubectl delete deployment mynginx
 
 docker pull jasonrivers/nagios:latest
 docker run --name nagiodemo -p 8888:80 jasonrivers/nagios:latest
